@@ -1,6 +1,7 @@
-# /etc/nixos/configuration.nix
-# Configuration for Dell Inspiron 5548 (i5-5500U, 8GB RAM) with Hyprland
-{ config, pkgs, ... }:
+# Edit this configuration file to define what should be installed on
+# your system.  Help is available in the configuration.nix(5) man page
+# and in the NixOS manual (accessible by running 'nixos-help').
+{ config, pkgs, inputs, ... }:
 
 {
   imports =
@@ -104,34 +105,10 @@
   };
 
   # User account
-  users.users.mata = {  # Thay "user" bằng tên bạn muốn
+  users.users.mata = {
     isNormalUser = true;
     description = "Dell User";
     extraGroups = [ "networkmanager" "wheel" "audio" "video" ];
-    packages = with pkgs; [
-      # Web browsers
-      firefox
-      
-      # File manager
-      dolphin
-      
-      # Application launcher
-      wofi
-      
-      # Screenshots
-      grim
-      slurp
-      
-      # Notifications
-      mako
-      
-      # Status bar
-      waybar
-      
-      # Wallpaper
-      swaybg
-      hyprpaper
-    ];
   };
 
   # System packages
