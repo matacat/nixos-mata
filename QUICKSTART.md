@@ -65,14 +65,25 @@ sudo nixos-rebuild switch --flake /etc/nixos#dell-nixos
 - Đảm bảo đã `chmod +x install.sh`
 - Thử chạy: `bash install.sh`
 
-### Lỗi permission denied:
+### Lỗi "permission denied: /etc/nixos":
+Script cần quyền sudo để truy cập /etc/nixos:
 ```bash
-sudo chmod +x install.sh
-bash install.sh
+# Thử lại với sudo cho các lệnh cần thiết
+sudo bash install.sh
+
+# Hoặc chạy thủ công từng bước
+chmod +x manual-install.sh
+./manual-install.sh  # Sẽ hiển thị từng lệnh để copy-paste
 ```
 
 ### Script không chạy được:
-Copy từng lệnh trong script và chạy thủ công
+```bash
+# Chạy script thủ công - step by step
+./manual-install.sh
+
+# Hoặc copy từng lệnh từ script và chạy riêng
+cat install.sh  # Xem nội dung và chạy từng lệnh
+```
 
 ## 📱 Liên hệ:
 Nếu gặp vấn đề, hãy paste log lỗi để được hỗ trợ!

@@ -78,10 +78,14 @@ sudo chown -R root:root /etc/nixos
 sudo chmod -R 644 /etc/nixos
 sudo chmod 755 /etc/nixos/hosts/dell-5548
 sudo chmod 755 /etc/nixos/modules
+sudo chmod 755 /etc/nixos/hosts
+sudo chmod 755 /etc/nixos/modules/desktop
+sudo chmod 755 /etc/nixos/modules/system
+sudo chmod 644 /etc/nixos/flake.nix
+sudo chmod 644 /etc/nixos/home.nix
 
 echo "6. Updating flake lock..."
-cd /etc/nixos
-sudo nix flake update
+sudo bash -c "cd /etc/nixos && nix flake update"
 
 echo "7. Testing configuration..."
 sudo nixos-rebuild dry-build --flake /etc/nixos#dell-nixos
