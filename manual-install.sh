@@ -40,8 +40,9 @@ echo "sudo chmod 644 /etc/nixos/*.nix /etc/nixos/hosts/dell-5548/*.nix"
 echo "sudo chmod 644 /etc/nixos/modules/desktop/*.nix /etc/nixos/modules/system/*.nix"
 echo
 
-echo "# 7. Update flake"
-echo "sudo bash -c 'cd /etc/nixos && nix flake update'"
+echo "# 7. Enable experimental features and update flake"
+echo "export NIX_CONFIG='experimental-features = nix-command flakes'"
+echo "sudo bash -c 'export NIX_CONFIG=\"experimental-features = nix-command flakes\" && cd /etc/nixos && nix flake update'"
 echo
 
 echo "# 8. Test build"

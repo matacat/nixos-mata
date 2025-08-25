@@ -84,8 +84,12 @@ sudo chmod 755 /etc/nixos/modules/system
 sudo chmod 644 /etc/nixos/flake.nix
 sudo chmod 644 /etc/nixos/home.nix
 
-echo "6. Updating flake lock..."
-sudo bash -c "cd /etc/nixos && nix flake update"
+echo "6. Enabling experimental features temporarily..."
+# Enable flakes temporarily for this session
+export NIX_CONFIG="experimental-features = nix-command flakes"
+
+echo "7. Updating flake lock..."
+sudo bash -c "export NIX_CONFIG='experimental-features = nix-command flakes' && cd /etc/nixos && nix flake update"
 
 echo "7. Testing configuration..."
 sudo nixos-rebuild dry-build --flake /etc/nixos#dell-nixos

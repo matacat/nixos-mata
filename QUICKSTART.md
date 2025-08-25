@@ -76,6 +76,19 @@ chmod +x manual-install.sh
 ./manual-install.sh  # Sẽ hiển thị từng lệnh để copy-paste
 ```
 
+### Lỗi "experimental nix feature 'nix-command' is disabled":
+Cần enable experimental features trước:
+```bash
+# Enable tạm thời cho session hiện tại
+export NIX_CONFIG="experimental-features = nix-command flakes"
+
+# Hoặc enable vĩnh viễn trong /etc/nix/nix.conf
+echo "experimental-features = nix-command flakes" | sudo tee -a /etc/nix/nix.conf
+
+# Sau đó chạy lại script
+./install.sh
+```
+
 ### Script không chạy được:
 ```bash
 # Chạy script thủ công - step by step
