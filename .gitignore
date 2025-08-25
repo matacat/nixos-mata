@@ -1,0 +1,40 @@
+# Build results
+result
+result-*
+
+# Backup files
+*.backup
+*.bak
+*~
+
+# Hardware-specific files (these should be regenerated on each machine)
+hosts/*/hardware-configuration.nix
+
+# Flake lock (comment out if you want to version control it)
+# flake.lock
+
+# Temporary files
+*.tmp
+*.swp
+*.swo
+
+# IDE files
+.vscode/
+.idea/
+*.iml
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Local configuration overrides
+local/
+private/
+
+# Secrets (if any)
+secrets.nix
+*.key
+*.pem

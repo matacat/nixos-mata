@@ -20,7 +20,7 @@
         inherit system;
         specialArgs = { inherit inputs; };
         modules = [
-          ./configuration.nix
+          ./hosts/dell-5548/configuration.nix
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
@@ -28,7 +28,6 @@
             home-manager.users.mata = import ./home.nix;
           }
           hyprland.nixosModules.default
-          { programs.hyprland.enable = true; }
         ];
       };
     };
